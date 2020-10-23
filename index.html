@@ -152,33 +152,164 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-List" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h1><h2 id="List接口的概述"><a href="#List接口的概述" class="headerlink" title="List接口的概述"></a>List接口的概述</h2><ul>
+<li><p>接口的解释：</p>
+<p>​    有序的collection，指的是存储元素和取出元素的顺序一致。</p>
+</li>
+<li><p>接口位置：</p>
+<p>​    java.util.List</p>
+</li>
+<li><p>接口构造器：</p>
+<p>​    接口无构造器</p>
+</li>
+<li><p>接口方法：</p>
+<ul>
+<li><p>void add(int index,E element)在列表的指定位置插入指定元素（可选操作）。</p>
+</li>
+<li><p>E get(int index)返回列表中指定位置的元素。</p>
+</li>
+<li><p>E remove(int index)移除列表中指定位置的元素（可选操作）。</p>
+</li>
+<li><p>E set(int index,E element)用指定元素替换列表中指定位置的元素（可选操作）。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="List接口特点"><a href="#List接口特点" class="headerlink" title="List接口特点:"></a>List接口特点:</h2><ul>
+<li><p>有序</p>
+</li>
+<li><p>可以存储重复元素</p>
+</li>
+<li><p>可以存储多个null值</p>
+</li>
+<li><p>带有索引，有的实现类的索引是指数组的索引，有的实现类的索引是通过某种数据结构模拟出来的编号。</p>
+</li>
+<li><p>4种遍历方式 </p>
+<ul>
+<li><p>for循环</p>
+</li>
+<li><p>增强for</p>
+</li>
+<li><p>collection的iterator迭代器</p>
+</li>
+<li><p>List接口提供了独特的迭代器，ListIterator</p>
+<p>ListIterator是Iterator的子接口，增加了一些方法    </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>List特有的迭代器使用方法和Iterator一样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ListIterator&lt;String&gt; listIterator =  list.ListIterator();</span><br><span class="line"><span class="keyword">while</span>(listIterator.hasNext())</span><br><span class="line">    sout(listIterator.next())</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="List接口删除元素"><a href="#List接口删除元素" class="headerlink" title="List接口删除元素"></a>List接口删除元素</h2><p>按照正常的for循环删除元素会有缺点。当删除元素后，list.size()会减1，而list整体的索引会改变，比如现在索引指向了2，删除了索引为2的元素后，下一次循环索引++后是3，但是list中未访问的元素向前挪动一位，它的索引是2，这样就少遍历了一个元素。</p>
+<p><img src="C:\Users\YGQ\AppData\Roaming\Typora\typora-user-images\image-20201023182913577.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="comment">//遍历</span></span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; list.size(); i++)</span><br><span class="line">    sout(list.get(i));</span><br></pre></td></tr></table></figure>
+
+<p>改进后的做法：</p>
+<ul>
+<li>方法一</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++)&#123;</span><br><span class="line">    sout(list.get(i));</span><br><span class="line">    i--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方法二</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = list.size(); i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">	sout(list.get(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/23/List/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ArrayList" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>类的位置：</p>
-<p>​        java.util.ArrayList</p>
-<p>类的构造器</p>
-<p>​    public ArrayList()</p>
-<p>​    public ArrayList(Collection&lt;? extend E&gt; coll)</p>
-<p>类的方法</p>
-<p>​    <strong>补充</strong></p>
-<p>LinkedList集合的特点：</p>
+        <h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h1><h2 id="ArrayList类的概述"><a href="#ArrayList类的概述" class="headerlink" title="ArrayList类的概述"></a>ArrayList类的概述</h2><h3 id="类的解释"><a href="#类的解释" class="headerlink" title="类的解释"></a>类的解释</h3><p>​    ArrayList是List接口的实现类，底层数据结构是动态数组，当数组长度不够用时，会通过新建一个更大的数组来扩容。</p>
+<h3 id="类的位置"><a href="#类的位置" class="headerlink" title="类的位置"></a>类的位置</h3><p>​        java.util.ArrayList</p>
+<h3 id="类的构造器"><a href="#类的构造器" class="headerlink" title="类的构造器"></a>类的构造器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="comment">//构造一个初始容量为 10 的空列表。</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span></span><br><span class="line"><span class="function"><span class="comment">//构造一个包含指定 collection 的元素的列表，这些元素是按照该 collection 的迭代器返回它们的顺序 排列的。</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span></span></span><br><span class="line"><span class="function"><span class="comment">//构造一个具有指定初始容量的空列表。</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="类的方法"><a href="#类的方法" class="headerlink" title="类的方法"></a>类的方法</h3><p>​    List和Collection中的方法</p>
+<h2 id="ArrayList集合的特点（源码分析）"><a href="#ArrayList集合的特点（源码分析）" class="headerlink" title="ArrayList集合的特点（源码分析）"></a>ArrayList集合的特点（源码分析）</h2><ul>
+<li><p>符合List接口的特点</p>
+</li>
+<li><p>底层数据接口：可变数组</p>
 <ul>
-<li><p>List集合的特点</p>
-<ul>
-<li><p>实现方式是环形的双向链表</p>
-<p>LinkedList（增删改）更新块，查询慢，链表越长，效率越低。</p>
+<li>数据结构特点（相比LinkedList）：<ul>
+<li>增删慢，需要移动元素</li>
+<li>查询快</li>
+</ul>
 </li>
 </ul>
 </li>
-<li><p>存在隐形节点，所以可以操作首尾元素</p>
+<li><p>初始容量</p>
+<ul>
+<li><p>public ArrayList() </p>
+<p>JDK7.0(包含)以后:先初始化一个长度为0的空数组,在第一次添加元素时,初始化一个长度为10的数组</p>
+<p>JDK6.0(包含)以前:直接初始化一个长度为10的数组</p>
+</li>
+<li><p>public ArrayList(int initialCapacity)<br>自定义初始容量</p>
+<p>public ArrayList(Collection&lt;? extends E&gt; c)<br>使用Arrays.copyOf()方法创建一个和c相同大小的数组</p>
+</li>
+</ul>
 </li>
 <li><p>线程不安全，效率高</p>
 </li>
+<li><p>扩容原理</p>
+<p>第一次添加元素时:初始化一个长度为10的数组</p>
+<ul>
+<li><pre><code>     JDK7.0(包含)以后:原来数组的长度 + (原来数组的长度 &gt;&gt; 1);</code></pre>
+</li>
+<li><pre><code>     JDK6.0(包含)以前:(原来数组的长度 * 3)/2 + 1;</code></pre>
+</li>
 </ul>
-<p>​            </p>
+</li>
+</ul>
 
       
 
